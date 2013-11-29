@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EAFC16B-A37B-4BEA-963A-3556D6A1BDC3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFCodeFirstDemo.Data.EF</RootNamespace>
+    <AssemblyName>EFCodeFirstDemo.Data.EF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DemoDbContext.cs" />
+    <Compile Include="DemoDbContextFactory.cs" />
+    <Compile Include="DropCreateInitializer.cs" />
+    <Compile Include="EntityConfiguration\ClientConfiguration.cs" />
+    <Compile Include="Migrations\201311290539512_InitialCreate.cs" />
+    <Compile Include="Migrations\201311290539512_InitialCreate.Designer.cs">
+      <DependentUpon>201311290539512_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311290607070_AddMobileField.cs" />
+    <Compile Include="Migrations\201311290607070_AddMobileField.Designer.cs">
+      <DependentUpon>201311290607070_AddMobileField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201311290613242_PostcodeToString.cs" />
+    <Compile Include="Migrations\201311290613242_PostcodeToString.Designer.cs">
+      <DependentUpon>201311290613242_PostcodeToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFCodeFirstDemo.Domain\EFCodeFirstDemo.Domain.csproj">
+      <Project>{75064ccf-2c38-477d-bd8c-6f9ddb326dbf}</Project>
+      <Name>EFCodeFirstDemo.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EFCodeFirstDemo.RepositoryInterfaces\EFCodeFirstDemo.RepositoryInterfaces.csproj">
+      <Project>{28b77cc4-e68a-41f9-a3c0-5b472c050c84}</Project>
+      <Name>EFCodeFirstDemo.RepositoryInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSW.Framework.Data.EF\SSW.Framework.Data.EF.csproj">
+      <Project>{c4d382a7-b885-4bba-9e4f-f89d4e6b8594}</Project>
+      <Name>SSW.Framework.Data.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSW.Framework.Data.Interfaces\SSW.Framework.Data.Interfaces.csproj">
+      <Project>{12855043-4537-48f6-a449-2dfabdeeacae}</Project>
+      <Name>SSW.Framework.Data.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201311290539512_InitialCreate.resx">
+      <DependentUpon>201311290539512_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311290607070_AddMobileField.resx">
+      <DependentUpon>201311290607070_AddMobileField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311290613242_PostcodeToString.resx">
+      <DependentUpon>201311290613242_PostcodeToString.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

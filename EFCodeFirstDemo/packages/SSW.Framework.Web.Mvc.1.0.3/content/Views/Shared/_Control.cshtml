@@ -1,0 +1,19 @@
+﻿@using SSW.Framework.Web.Mvc
+@model ControlModel
+@{
+    var controlHtml = Model.ControlFor().ToHtmlString();
+    var wrapped = controlHtml.Contains("<");
+}
+<div class="control-group">
+    @Model.LabelFor()
+    <div class="controls">
+        @if (wrapped) {
+            @Html.Raw(controlHtml)
+        }
+        else
+        {
+            <span class="control">@Html.Raw(controlHtml)</span>
+        }
+        @Model.ValidationMessageFor()
+    </div>
+</div>

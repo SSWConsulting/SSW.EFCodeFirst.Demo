@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>SSW.Framework.Web.Mvc</id>
+    <version>1.0.3</version>
+    <title>SSW.Framework.Web.Mvc</title>
+    <authors>Mark Liu, Eric Phan, Daniel Hyles, Brendan Richards</authors>
+    <owners>Mark Liu</owners>
+    <projectUrl>https://github.com/ssw-au/SSW.Framework.Web.Mvc/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SSW Framework for ASP.NET MVC</description>
+    <copyright />
+    <language>en-AU</language>
+    <tags>MVC</tags>
+  </metadata>
+</package>
